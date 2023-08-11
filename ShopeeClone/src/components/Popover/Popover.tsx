@@ -21,7 +21,7 @@ export default function Popover({
 }: Props) {
   const arrowRef = useRef<HTMLElement>(null)
   const [open, setOpen] = useState(initialOpen || false)
-  const { refs, floatingStyles, middlewareData, x, y, strategy } = useFloating({
+  const { refs, middlewareData, x, y, strategy } = useFloating({
     middleware: [
       offset(6),
       shift(),

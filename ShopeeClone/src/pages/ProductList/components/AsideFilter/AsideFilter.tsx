@@ -10,9 +10,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { NoUndefinedField } from 'src/types/utils.type'
 import RatingStarts from '../RatingStarts'
 import { ObjectSchema } from 'yup'
-import { omit } from 'lodash'
+import omit from 'lodash/omit'
 import { QueryConfig } from 'src/hooks/useQueryConfig'
-import InputV2 from 'src/components/InputV2'
 
 interface AsideFilterProps {
   queryConfig: QueryConfig
