@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useMutation } from '@tanstack/react-query'
 import { useContext } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import authApi from 'src/apis/auth.api'
@@ -37,7 +38,9 @@ export default function Login() {
       onError: (error) => {
         if (isAxiosUnprocessableEntityError<ErrorResponse<FormData>>(error)) {
           const formError = error.response?.data.data
+          console.log(formError)
           if (formError) {
+            console.log(formError)
             Object.keys(formError).forEach((key) => {
               setError(key as keyof FormData, {
                 message: formError[key as keyof FormData],
@@ -51,6 +54,10 @@ export default function Login() {
   })
   return (
     <div className='bg-orange'>
+      <Helmet>
+        <title>Đăng nhập | Shopee Clone</title>
+        <meta name='description' content='Đăng nhập vào dự án Shopee Clone' />
+      </Helmet>
       <div className='container'>
         <div className='grid grid-cols-1 py-12 lg:grid-cols-5 lg:py-32 lg:pr-10'>
           <div className='lg:col-span-2 lg:col-start-4'>

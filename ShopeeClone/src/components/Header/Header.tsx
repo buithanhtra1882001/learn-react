@@ -48,7 +48,7 @@ export default function Header() {
                 placeholder='Tìm sản phẩm, thương hiệu, và tên shop'
                 {...register('name')}
               />
-              <button className='rouded-sm flex-shrink-0 bg-orange px-6 py-2 hover:opacity-90'>
+              <button className='flex-shrink-0 rounded-sm bg-orange px-6 py-2 hover:opacity-90'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'

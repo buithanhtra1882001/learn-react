@@ -7,6 +7,7 @@ import { useMutation } from '@tanstack/react-query'
 import omit from 'lodash/omit'
 
 import { useContext } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import authApi from 'src/apis/auth.api'
@@ -39,7 +40,7 @@ export default function Register() {
     const body = omit(data, ['confirm_password'])
     registerAccountMutation.mutate(body, {
       onSuccess: (data) => {
-        setIsAuthenticated(true)
+        // setIsAuthenticated(true)
         setProfile(data.data.data.user)
         navigate(path.login)
       },
@@ -76,6 +77,10 @@ export default function Register() {
 
   return (
     <div className='bg-orange'>
+      <Helmet>
+        <title>Đăng ký | Shopee Clone</title>
+        <meta name='description' content='Đăng ký tài khoản của dự án Shopee Clone' />
+      </Helmet>
       <div className='container'>
         <div className='grid grid-cols-1 py-12 lg:grid-cols-5 lg:py-32 lg:pr-10'>
           <div className='lg:col-span-2 lg:col-start-4'>
