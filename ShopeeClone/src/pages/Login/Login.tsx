@@ -38,9 +38,7 @@ export default function Login() {
       onError: (error) => {
         if (isAxiosUnprocessableEntityError<ErrorResponse<FormData>>(error)) {
           const formError = error.response?.data.data
-          console.log(formError)
           if (formError) {
-            console.log(formError)
             Object.keys(formError).forEach((key) => {
               setError(key as keyof FormData, {
                 message: formError[key as keyof FormData],

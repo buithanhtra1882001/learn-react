@@ -23,7 +23,7 @@ type FormData = Pick<Schema, 'email' | 'password' | 'confirm_password'>
 const registerSchema = schema.pick(['email', 'password', 'confirm_password'])
 
 export default function Register() {
-  const { setIsAuthenticated, setProfile } = useContext(AppContext)
+  const { setProfile } = useContext(AppContext)
   const navigate = useNavigate()
   const {
     register,
@@ -40,7 +40,6 @@ export default function Register() {
     const body = omit(data, ['confirm_password'])
     registerAccountMutation.mutate(body, {
       onSuccess: (data) => {
-        // setIsAuthenticated(true)
         setProfile(data.data.data.user)
         navigate(path.login)
       },
